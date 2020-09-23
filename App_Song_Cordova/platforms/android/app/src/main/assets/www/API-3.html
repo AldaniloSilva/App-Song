@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+  
+/*
+function getNumber(){  
+
+  var x = Math.floor(Math.random() * 10); 
+  document.getElementById("demo").innerHTML =  x;      
+        
+}
+*/
+
+
+function setText(msg) {
+      
+    var x = Math.floor(Math.random() * msg.length); 
+    console.log(msg[x]['preview']); //Só para debug!!
+    document.getElementById("my-audio").setAttribute('src', msg[x]['preview']);
+  
+
+}
+
+
+function getSong(){
+  var artista = document.getElementById("fname").value; 
+
+
+    fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=" + artista ) //WEB API -  HTTP
+    .then(request => request.text()) //Retorna o objeto request
+    .then(data => setText(JSON.parse(data)['data'])) //Obtem os dados e transforma em JSON
+
+}
+
+
+</script>
+
+</head>
+<body>
+  <h4>Ouça uma música surpresa do seu artista preferido</h4>
+
+  <form action="index.html">
+    <input type="submit" value="Home" />
+  </form>
+
+  <label for="fname">Artista:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <button onclick="getSong();">Get Song</button>
+  <p id="demo"></p>
+
+
+  <audio id="my-audio" controls>
+        <source src="" type="audio/mpeg">
+
+  Your browser does not support the audio element.
+  </audio>
+
+  <form action="index.html">
+    <input type="submit" value="Home" />
+  </form>
+
+</body>
+</html>
