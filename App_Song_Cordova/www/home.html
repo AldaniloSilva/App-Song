@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- A biblioteca bundle já contem os arquivos JS do Bootstrap, Popper, e jQuery.
+    <script src="js/bootstrap.bundle.js"></script>-->
+    <title>FTT EC7 LP3 N2!!</title>
+    <LINK REL="stylesheet" HREF="css/bootstrap.css" />
+    <STYLE>
+        .center-txt {
+            text-align: center;
+            color: black;
+            width: 90px;
+            padding: 4px;
+            margin: 0;
+            border: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .button-selected {
+            background-color: #343a40;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .width-button-bar {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-right: 0;
+            margin-left: 0;
+
+        }
+
+        .bottom-button-bar {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+        }
+
+        .icon-font {
+            font-size: 40px;
+        }
+
+        main {
+            padding-top: 56px;
+            padding-bottom: 50px;
+
+        }
+
+        button {
+            text-align: center;
+        }
+
+        .container {
+
+            align-items: center;
+            /*position: relative;*/
+            position: center;
+
+
+        }
+
+        img {
+            margin: auto;
+            position: center;
+        }
+
+
+
+        main {
+
+            align-items: center;
+            float: right;
+            margin: auto;
+        }
+    </STYLE>
+    <SCRIPT>
+
+        function getLetra() {
+
+
+            // window.open('/letra.html',self);
+            location.assign('letra.html');
+
+        }
+
+        function getVideo() {
+
+            //window.open('/video.html',self);
+            location.assign('video.html');
+
+        }
+
+        function getDisco() {
+
+            location.assign('disco.html');
+
+        }
+
+        function getMusica() {
+            //window.open('audio.html',self);
+
+            location.assign('audio.html');
+
+        }
+
+
+
+
+
+    </SCRIPT>
+</HEAD>
+
+<BODY lang="pt-br">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- <a class="navbar-brand" href="#"> H&#x231A;ra de &#x1F3B5;úsica</a>-->
+        <a class="navbar-brand" href="#"> Hora de Música!</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="navbar-nav float-right text-right pr-3">
+                <a class="nav-item nav-link" href="sobre.html">Sobre</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--  <main class="container" id="aluno"> -->
+
+
+
+
+    <!--
+       <h1><span class="badge badge-success"><b onclick="tab01feature.html">Projeto do aluno!!<br>Features 1</span></h1>
+      <h1><span class="badge badge-success">Projeto do aluno!!<br>Features 1</span></h1>-->
+    <!-- <img src="./img/home_3.png" alt="Trulli" width="28%" height="28%"> -->
+    <!--    <div class="botao">  -->
+
+
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-sm"> -->
+            <div class="col text-center">
+                <br>
+                <br>
+                <br>
+
+
+                <div class='imagem-container'>
+                    <img src="./img/home_3.png" alt="Trulli" width="28%" height="28%">
+                    <br>
+                </div>
+
+
+
+                <button type="button" class="badge badge-light" onclick="getMusica()">
+                    <h2><span class="badge badge-light"><b>Ouça uma Música
+                                &nbsp;&#x1F3A7; </span></h2>
+                </button>
+
+                <br>
+                <br>
+
+
+                <button type="button" class="badge badge-success" onclick="getLetra()">
+                    <h2><span class="badge badge-success"><b>Encontre a Letra
+                                &nbsp;&nbsp; &#x1F3A4; </span></h2>
+                </button>
+
+                <br>
+                <br>
+
+                <button type="button" class="badge badge-danger" onclick="getVideo()">
+                    <h2><span class="badge badge-danger"><b>Assista a um clipe
+                                &#x1F4FA;</span></h2>
+                </button>
+
+                <br>
+                <br>
+
+                <button type="button" class="badge badge-warning" onclick="getDisco()">
+                    <h2><span class="badge badge-warning"><b>Discografia
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#x1F4BF; </span>
+                    </h2>
+                </button>
+
+
+
+                <!-- <p><a href="https://github.com/public-apis/public-apis" target="_apis">Lista de APIs públicas</a></p> -->
+                <!--    </main> -->
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+
+
+
+
+
+</BODY>
+<!-- carga de scripts do Bootstrap, JQuery, Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+</HTML>
