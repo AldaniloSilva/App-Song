@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- A biblioteca bundle já contem os arquivos JS do Bootstrap, Popper, e jQuery.
+    <script src="js/bootstrap.bundle.js"></script>-->
+    <title>FTT EC7 LP3 N2!!</title>
+    <LINK REL="stylesheet" HREF="css/bootstrap.css" />
+    <STYLE>
+        .center-txt {
+            text-align: center;
+            color: black;
+            width: 90px;
+            padding: 4px;
+            margin: 0;
+            border: 0;
+        }
+
+        body {
+            background-color: #2777c7;
+        }
+
+        .button-selected {
+            background-color: #343a40;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .width-button-bar {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-right: 0;
+            margin-left: 0;
+
+        }
+
+        .bottom-button-bar {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+        }
+
+        .icon-font {
+            font-size: 40px;
+        }
+
+        main {
+            padding-top: 56px;
+            padding-bottom: 50px;
+
+        }
+
+        .button {
+            text-align: center;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container {
+
+            align-items: center;
+            /*position: relative;*/
+            position: center;
+
+
+        }
+
+        /*  .botao */
+
+        .form-group {
+
+            margin: 0 auto;
+            /* top: 50%;
+            left: 70%;*/
+        }
+
+
+ 
+        h1 {
+            text-align: center;
+            color: white;
+        }
+    </STYLE>
+
+    <SCRIPT>
+        function setText(msg) {
+
+            console.log(msg); //Só para debug!!
+            document.getElementById("demo").innerHTML = msg["lyrics"];
+        }
+        function getLyrics() {
+            {
+                var artista = document.getElementById("artista").value;
+                var musica = document.getElementById("musica").value;
+                fetch("https://api.lyrics.ovh/v1/" + artista + "/" + musica) //WEB API -  HTTP
+                    .then(request => request.text()) //Retorna o objeto request
+                    .then(data => setText(JSON.parse(data))) //Obtem os dados e transforma em JSON
+            }
+
+
+
+        }
+
+
+    </SCRIPT>
+</HEAD>
+
+<BODY lang="pt-br">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        
+        <a class="navbar-brand" href="#"> Hora de Música!</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="navbar-nav float-right text-right pr-3">
+                <a class="nav-item nav-link" href="sobre.html">Sobre</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <main class="container" id="aluno">-->
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+
+
+
+                <form class="form-group">
+
+                    <br>
+                    <br>
+                    <label>Artista</label>
+                    <br>
+                    <input id="artista" type="artista" class="form-control">
+
+
+                    <label>Nome da Música</label>
+                    <input id="musica" type="musica" class="form-control">
+
+
+                    <br>
+                    <textarea id="demo" class="form-control" rows="5" cols="50" id="comment" readonly></textarea>
+                    <br>               
+
+                </form>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">         
+
+                <button   onclick=getLyrics(); type="button" class="badge badge-success" >
+                    <h5><span class="badge badge-success"><b>Encontre a Letra
+                                &nbsp; &#x1F3A4; </span></h5>
+                </button>
+
+            </div>
+        </div>
+      </div> 
+
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <!--     <button type="button" class="badge badge-success">
+            <h5><span class="badge badge-success"><b onclick=getLyrics();>Encontre a Letra
+                        &nbsp; &#x1F3A4; </span></h5>
+        </button>  -->
+
+    <br>
+
+
+
+
+    <h1>
+        <a href="home.html" target="_self">&#x21A9;</a>
+    </h1>
+
+    <!-- <p><a href="https://github.com/public-apis/public-apis" target="_apis">Lista de APIs públicas</a></p> -->
+    <!-- </main> -->
+    </div>
+
+
+
+
+
+
+</BODY>
+<!-- carga de scripts do Bootstrap, JQuery, Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+</HTML>

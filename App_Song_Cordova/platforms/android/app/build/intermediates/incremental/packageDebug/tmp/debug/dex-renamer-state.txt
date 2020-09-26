@@ -1,4 +1,4 @@
-#Tue Sep 22 10:39:23 BRT 2020
+#Sat Sep 26 14:25:37 BRT 2020
 base.0=/home/bruno/Desktop/App-Song-master/App-Song/App_Song_Cordova/platforms/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
 path.1=classes_0.dex
 renamed.1=classes2.dex
