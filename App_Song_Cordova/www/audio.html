@@ -92,13 +92,36 @@
             align-items: center;
         }
 
+        p {
+
+            font-family: "Arial Black", Gadget, sans-serif ;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+           /*  -webkit-text-stroke-width: 1px; */
+            -webkit-text-stroke-color: black;
+           
+
+        }
+
     </STYLE>
     <SCRIPT>
         function setText(msg) {
+            if (msg == "") {
+                alert("Desculpe, não encontramos sua música");
+                document.getElementById("info").innerHTML = "";
+            }
+
+            else{
 
             var x = Math.floor(Math.random() * msg.length);
             console.log(msg[x]['preview']); //Só para debug!!
             document.getElementById("my-audio").setAttribute('src', msg[x]['preview']);
+            document.getElementById("Button").disabled = false;
+
+ 
+            document.getElementById("info").innerHTML = "";
+            }
 
 
         }
@@ -107,10 +130,21 @@
         function getSong() {
             var artista = document.getElementById("fname").value;
 
+            if(artista == null){
+                document.getElementById("info").innerHTML = "Artista não encontrado!";
+            }
+
+
 
             fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=" + artista) //WEB API -  HTTP
+                
+
+            
                 .then(request => request.text()) //Retorna o objeto request
                 .then(data => setText(JSON.parse(data)['data'])) //Obtem os dados e transforma em JSON
+                .then(document.getElementById("Button").disabled = true)
+                .then(document.getElementById("info").innerHTML = "Buscando ...")
+              
 
         }
 
@@ -145,13 +179,6 @@
 
 
 
-    <!--
-       <h1><span class="badge badge-success"><b onclick="tab01feature.html">Projeto do aluno!!<br>Features 1</span></h1>
-      <h1><span class="badge badge-success">Projeto do aluno!!<br>Features 1</span></h1>-->
-
-
-    <!-- <img src="./img/home_3.png" alt="Trulli" width="28%" height="28%" >-->
-
     <!-- INLINE FORM -->
 
     <div class="container">
@@ -161,11 +188,13 @@
                 <form class="form-group">
                     <br>
                     <br>
-                    <label>Artista</label>
+                    <p id="desc">Escolha um artista para que apareça uma música surpresa para você!</p>
+                    <label><strong>Artista</strong></label>
                     <br>
                     <input type="artista" id="fname" class="form-control">
 
                     <br>
+                    <p id="info"></p>
                     <br>
 
 
@@ -191,7 +220,7 @@
             <div class="col text-center">
 
 
-                <button onclick="getSong();" type="button" class="badge badge-light">
+                <button id="Button" onclick="getSong();" type="button" class="badge badge-light">
                     <h5><span class="badge badge-light"><b>Ache a Música
                                 &#x1F3A7; </span></h5>
                 </button>

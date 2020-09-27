@@ -78,31 +78,92 @@
         }
 
 
- 
+
         h1 {
             text-align: center;
             color: white;
         }
+
+        p {
+
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            /*  -webkit-text-stroke-width: 1px; */
+            -webkit-text-stroke-color: black;
+
+
+        }
+
+        #letra-conteiner {
+            text-align: center;
+            color: black;
+        }
+
+        #div-conteiner {
+            visibility: hidden;
+        }
     </STYLE>
 
     <SCRIPT>
-        function setText(msg) {
+        /*         function setText(msg) {
+        
+                    console.log(msg); //Só para debug!!
+                    document.getElementById("demo").innerHTML = msg["lyrics"];
+                    document.getElementById("info").innerHTML = "";
+        
+                } */
 
+        function setText(msg) {
             console.log(msg); //Só para debug!!
-            document.getElementById("demo").innerHTML = msg["lyrics"];
+            if (msg["lyrics"] == "") {
+                alert("Desculpe, não encontramos sua música");
+                document.getElementById("info").innerHTML = "";
+            }
+            else {
+                var teste = msg.lyrics.split("\n");
+                var form = document.getElementById('meu-form');
+                var myDiv = document.getElementById('div-conteiner');
+                myDiv.style.visibility = 'visible';
+                myDiv.innerHTML = "";
+
+                teste.map((linha) => {
+                    console.log(linha);
+                    var criaP = document.createElement('p');
+                    criaP.id = 'letra-conteiner';
+                    criaP.textContent = linha;
+                    myDiv.appendChild(criaP);
+                })
+                document.getElementById("info").innerHTML = "";
+            }
         }
+
+
+
+
+
+
+
         function getLyrics() {
             {
+
                 var artista = document.getElementById("artista").value;
                 var musica = document.getElementById("musica").value;
                 fetch("https://api.lyrics.ovh/v1/" + artista + "/" + musica) //WEB API -  HTTP
-                    .then(request => request.text()) //Retorna o objeto request
-                    .then(data => setText(JSON.parse(data))) //Obtem os dados e transforma em JSON
+                    .then(request => request.text()) //Retorna o objeto request                      
+                    .then(data => {
+                        setText(JSON.parse(data))
+                    })//Obtem os dados e transforma em JSON
             }
-
-
-
         }
+
+
+
+
+
+
+
 
 
     </SCRIPT>
@@ -118,7 +179,7 @@
         </button>
 
 
-        
+
         <a class="navbar-brand" href="#"> Hora de Música!</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -128,7 +189,7 @@
         </div>
     </nav>
 
-    <!-- <main class="container" id="aluno">-->
+
     <hr>
 
     <div class="container">
@@ -138,38 +199,50 @@
 
 
 
-                <form class="form-group">
+                <form id="meu-form" class="form-group">
 
                     <br>
                     <br>
-                    <label>Artista</label>
+                    <p1></p1>
+                    <label><strong>Artista</strong></label>
                     <br>
                     <input id="artista" type="artista" class="form-control">
+                    <br>
 
 
-                    <label>Nome da Música</label>
+                    <label><strong>Nome da Música</strong></label>
                     <input id="musica" type="musica" class="form-control">
 
 
                     <br>
-                    <textarea id="demo" class="form-control" rows="5" cols="50" id="comment" readonly></textarea>
-                    <br>               
+                    <!--  <textarea id="demo" class="form-control" rows="5" cols="50" id="comment" readonly></textarea> -->
+                    <div class="form-control" id="div-conteiner">
+
+                    </div>
+
+
+
+                    <br>
+                    <br>
+                    <p id="info"></p>
+                    <br>
 
                 </form>
 
 
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center">         
+                        <div class="col text-center">
+                            <br>
 
-                <button   onclick=getLyrics(); type="button" class="badge badge-success" >
-                    <h5><span class="badge badge-success"><b>Encontre a Letra
-                                &nbsp; &#x1F3A4; </span></h5>
-                </button>
+                            <button onclick=getLyrics(); type="button" class="badge badge-success">
+                                <h5><span class="badge badge-success"><b>Encontre a Letra
+                                            &nbsp; &#x1F3A4; </span></h5>
+                            </button>
 
-            </div>
-        </div>
-      </div> 
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -177,11 +250,6 @@
     </div>
     <br>
 
-
-    <!--     <button type="button" class="badge badge-success">
-            <h5><span class="badge badge-success"><b onclick=getLyrics();>Encontre a Letra
-                        &nbsp; &#x1F3A4; </span></h5>
-        </button>  -->
 
     <br>
 
@@ -192,8 +260,6 @@
         <a href="home.html" target="_self">&#x21A9;</a>
     </h1>
 
-    <!-- <p><a href="https://github.com/public-apis/public-apis" target="_apis">Lista de APIs públicas</a></p> -->
-    <!-- </main> -->
     </div>
 
 

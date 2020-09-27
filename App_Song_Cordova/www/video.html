@@ -91,6 +91,26 @@
             justify-content: center;
             align-items: center;
         }
+
+
+        p {
+
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            /*  -webkit-text-stroke-width: 1px; */
+            -webkit-text-stroke-color: black;
+
+        }
+
+        h6 {
+            text-align: center;
+            font-weight: bolder
+        }
+        
+
+
     </STYLE>
     <SCRIPT>
 
@@ -101,7 +121,8 @@
             //console.log(msg['results'][x]['previewUrl']);
             document.getElementById("my-video").setAttribute('src', msg['results'][x]['previewUrl']);
             document.getElementById("demo").innerHTML = "Música : " + msg['results'][x]['trackName'];
-            //console.log(msg['results'][x]['previewUrl']);
+            document.getElementById("info").innerHTML = "";
+
 
 
         }
@@ -114,6 +135,9 @@
             fetch("https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=" + artista + "&entity=musicVideo") //WEB API -  HTTP
                 .then(request => request.text()) //Retorna o objeto request
                 .then(data => setText(JSON.parse(data))) //Obtem os dados e transforma em JSON
+                .then(document.getElementById("info").innerHTML = "Buscando ...")
+
+                
 
         }
 
@@ -153,18 +177,21 @@
                 <form class="form-group">
                     <br>
                     <br>
-                    <label>Artista</label>
+                    <p id="desc">Escolha um artista para que apareça um vídeo surpresa para você!</p>
+                    <br>
+                    <label><strong>Artista</strong></label>
                     <br>
                     <input type="artista" id="fname" class="form-control">
-
-
+                    <br>
+                    <p id="info"></p>
+                    <br>
 
                 </form>
 
 
 
 
-                <h6 id="demo"></h6>
+                <h6 id="demo"><strong></strong></h6>
                 <div class='video-container'>
 
                     <video id="my-video" width="290" controls class="form-group">

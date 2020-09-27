@@ -72,7 +72,26 @@
             text-align: center;
             color: white;
         }
+
+        li {
+            text-align: center;
+            font-weight: bolder
+        }
+
+
+        p {
+
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            /*  -webkit-text-stroke-width: 1px; */
+            -webkit-text-stroke-color: black;
+
+
+        }
     </STYLE>
+
     <SCRIPT>
 
         function getList() {
@@ -90,7 +109,14 @@
 
 
         function setText(msg) {
-            document.getElementById("listaPares").innerHTML = '';
+
+            if (msg == "") {
+                alert("Desculpe, não encontramos esse artista");
+                
+            }
+
+            else{
+               
 
             console.log(msg.length); //Só para debug!!
             //document.getElementById("demo").innerHTML = msg["lyrics"];
@@ -104,6 +130,7 @@
 
             }
         }
+    }
 
         function getLyrics() {
             {
@@ -154,14 +181,14 @@
 
                 <!-- INLINE FORM -->
                 <form class="form-group">
-                   
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <label>Artista</label>
-                        <br>
-                        <input id='fname' type="artista" class="form-control">                 
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <label><strong>Artista</strong></label>
+                    <br>
+                    <input id='fname' type="artista" class="form-control">
 
                 </form>
 
@@ -178,16 +205,17 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center">   
+                        <div class="col text-center">
 
-                <button onclick="getLyrics();" type="button" class="badge badge-warning">
-                    <h5><span class="badge badge-warning"><b>Buscar
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#x1F4BF; </span></h5>
-                </button>
+                            <button onclick="getLyrics();" type="button" class="badge badge-warning">
+                                <h5><span class="badge badge-warning"><b>Buscar
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#x1F4BF;
+                                    </span></h5>
+                            </button>
 
-            </div>
-        </div>
-      </div> 
+                        </div>
+                    </div>
+                </div>
 
 
 
